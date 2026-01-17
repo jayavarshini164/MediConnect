@@ -10,6 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class DoctorServiceImplJdbc {
+  
     public List<Doctor> getAllDoctors()
     {
         return null;
@@ -37,7 +38,7 @@ public void updateDoctor(Doctor doctor)
 
 public void deleteDoctor(int doctorId)
 {
-    
+
 }        // Does nothing (method body is empty).
 
 }

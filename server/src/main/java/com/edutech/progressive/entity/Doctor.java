@@ -1,9 +1,8 @@
 
 package com.edutech.progressive.entity;
 
-import java.io.Serializable;
 
-public class Doctor implements Serializable, Comparable<Doctor> {
+public class Doctor implements  Comparable<Doctor> {
 
     private int DoctorId;              
     private String FullName;           

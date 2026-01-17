@@ -3,7 +3,7 @@ package com.edutech.progressive.entity;
 
 import java.io.Serializable;
 
-public class Clinic implements Serializable {
+public class Clinic {
 
     private int ClinicId;            
     private String ClinicName;       

@@ -1,10 +1,11 @@
 
 package com.edutech.progressive.entity;
 
-import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
-public class Patient implements Serializable, Comparable<Patient> {
+// import java.sql.Date;
+
+public class Patient implements Comparable<Patient> {
 
     private int PatientId;           // Unique ID for the patient
     private String FullName;         // Full name
@@ -44,9 +45,7 @@ public class Patient implements Serializable, Comparable<Patient> {
     // Day 2: Sort Patients by name (ascending)
     @Override
     public int compareTo(Patient other) {
-        if (other == null) return 1;
-        if (this.FullName == null && other.FullName == null) return 0;
-        if (this.FullName == null) return -1;
+        
         return this.FullName.compareToIgnoreCase(other.FullName);
     }
 

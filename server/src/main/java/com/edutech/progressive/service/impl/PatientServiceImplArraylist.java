@@ -1,30 +1,76 @@
-
- package com.edutech.progressive.service.impl;
-
+package com.edutech.progressive.service.impl;
+ 
 import java.util.ArrayList;
+
+import java.util.Collections;
+
 import java.util.Comparator;
+
 import java.util.List;
+ 
+import com.edutech.progressive.entity.Patient;
 
- import com.edutech.progressive.entity.Patient;
- import com.edutech.progressive.service.PatientService;
+import com.edutech.progressive.service.PatientService;
+ 
+public class PatientServiceImplArraylist implements PatientService {
+ 
+    private static List<Patient> patientList = new ArrayList<>();
+ 
+    @Override
 
-public class PatientServiceImplArraylist  {
-   
-public List<Patient> getAllPatients()
-{
-return null;
-}         // Returns an empty list of patients.
+    public List<Patient> getAllPatients() {
 
-public Integer addPatient(Patient patient){
-return -1;
-}       // Returns -1, no patient is actually added.
+        return patientList;
 
-public List<Patient> getAllPatientSortedByName()
-{
-    return null;
-}  // Returns an empty list, sorting not implemented.
+    }
+ 
+    @Override
 
-public void emptyArrayList(){
+    public Integer addPatient(Patient patient) {
 
-}                        // Does nothing (method body is empty).
+        // patientList.add(patient);
+
+        patientList.add(patient);
+
+        return patient.getPatientId();
+ 
+    }
+ 
+    @Override
+
+    public List<Patient> getAllPatientSortedByName() {
+
+        Collections.sort(patientList,nameComparatotor);
+
+        return patientList;
+
+    }
+ 
+    @Override
+
+    public void emptyArrayList() {
+             patientList = new ArrayList<>();
+    }
+ 
+    public static Comparator<Patient> nameComparatotor= new Comparator<Patient>() {
+ 
+        @Override
+
+        public int compare(Patient arg0, Patient arg1) {
+
+            return arg0.getFullName().compareToIgnoreCase(arg1.getFullName());
+
+        }
+
+    };
+
+  
+
+
+  
+ 
+    
+ 
+ 
 }
+ 

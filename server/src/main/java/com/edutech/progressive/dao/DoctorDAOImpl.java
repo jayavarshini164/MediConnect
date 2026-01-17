@@ -12,28 +12,28 @@ import java.util.List;
 public class DoctorDAOImpl implements DoctorDAO {
 
     @Override
-    public int addDoctor(Doctor doctor) throws SQLException {
+    public int addDoctor(Doctor doctor)  {
         return -1;
     }
 
     @Override
-    public Doctor getDoctorById(int doctorId) throws SQLException {
+    public Doctor getDoctorById(int doctorId) {
        return null;
     }
 
     @Override
-    public void updateDoctor(Doctor doctor) throws SQLException {
+    public void updateDoctor(Doctor doctor) {
        
     }
 
     @Override
-    public void deleteDoctor(int doctorId) throws SQLException {
+    public void deleteDoctor(int doctorId)  {
       
       
     }
 
     @Override
-    public List<Doctor> getAllDoctors() throws SQLException {
+    public List<Doctor> getAllDoctors() {
        return null;
     }
 }
