@@ -4,7 +4,7 @@ package com.edutech.progressive.entity;
 import java.util.Date;
 
 // import java.sql.Date;
-
+//wdeewewdse
 public class Patient implements Comparable<Patient> {
 
     private int PatientId;           // Unique ID for the patient
