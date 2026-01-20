@@ -1,60 +1,78 @@
-
 package com.edutech.progressive.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class Doctor implements  Comparable<Doctor> {
-
-    private int DoctorId;              
-    private String FullName;           
-    private String Specialty;          
-    private String ContactNumber;      
-    private String Email;             
-    private int YearsOfExperience;     
-
-    public Doctor() {}
-
-    public Doctor(int doctorId, String fullName, String specialty,
-                  String contactNumber, String email, int yearsOfExperience) {
-        this.DoctorId = doctorId;
-        this.FullName = fullName;
-        this.Specialty = specialty;
-        this.ContactNumber = contactNumber;
-        this.Email = email;
-        this.YearsOfExperience = yearsOfExperience;
+@Entity
+@Table(name = "doctor")
+public class Doctor implements Comparable<Doctor> {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int doctorId;
+    private String fullName;
+    private String specialty;
+    private String contactNumber;
+    private String email;
+    private int yearsOfExperience;
+    public Doctor() {
     }
-
-    // Getters
-    public int getDoctorId() { return DoctorId; }
-    public String getFullName() { return FullName; }
-    public String getSpecialty() { return Specialty; }
-    public String getContactNumber() { return ContactNumber; }
-    public String getEmail() { return Email; }
-    public int getYearsOfExperience() { return YearsOfExperience; }
-
-    // Setters
-    public void setDoctorId(int doctorId) { DoctorId = doctorId; }
-    public void setFullName(String fullName) { FullName = fullName; }
-    public void setSpecialty(String specialty) { Specialty = specialty; }
-    public void setContactNumber(String contactNumber) { ContactNumber = contactNumber; }
-    public void setEmail(String email) { Email = email; }
-    public void setYearsOfExperience(int yearsOfExperience) { YearsOfExperience = yearsOfExperience; }
-
-    // Day 2: Sort Doctors by experience (ascending)
+    public Doctor(int doctorId, String fullName, String specialty, String contactNumber, String email,
+            int yearsOfExperience) {
+        this.doctorId = doctorId;
+        this.fullName = fullName;
+        this.specialty = specialty;
+        this.contactNumber = contactNumber;
+        this.email = email;
+        this.yearsOfExperience = yearsOfExperience;
+    }
+    public int getDoctorId() {
+        return doctorId;
+    }
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+    }
+    public String getFullName() {
+        return fullName;
+    }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+    public String getSpecialty() {
+        return specialty;
+    }
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+    public String getContactNumber() {
+        return contactNumber;
+    }
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public int getYearsOfExperience() {
+        return yearsOfExperience;
+    }
+    public void setYearsOfExperience(int yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
+    }
+    
     @Override
-    public int compareTo(Doctor other) {
-        if (other == null) return 1;
-        return Integer.compare(this.YearsOfExperience, other.YearsOfExperience);
+    public int compareTo(Doctor o) {
+        return Integer.compare(this.yearsOfExperience, o.yearsOfExperience);
     }
-
     @Override
     public String toString() {
-        return "Doctor{" +
-                "DoctorId=" + DoctorId +
-                ", FullName='" + FullName + '\'' +
-                ", Specialty='" + Specialty + '\'' +
-                ", ContactNumber='" + ContactNumber + '\'' +
-                ", Email='" + Email + '\'' +
-                ", YearsOfExperience=" + YearsOfExperience +
-                '}';
+        return "Doctor [doctorId=" + doctorId + ", fullName=" + fullName + ", specialty=" + specialty
+                + ", contactNumber=" + contactNumber + ", email=" + email + ", yearsOfExperience=" + yearsOfExperience
+                + "]";
     }
 }

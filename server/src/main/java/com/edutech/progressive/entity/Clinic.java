@@ -1,57 +1,82 @@
-
 package com.edutech.progressive.entity;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "clinic")
 public class Clinic {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int ClinicId;            
-    private String ClinicName;       
-    private String Location;         
-    private int DoctorId;            
-    private String ContactNumber;    
-    private int EstablishedYear;    
+    private int clinicId;
+    private String clinicName;
+    private String location;
+    private int doctorId;
+    private String contactNumber;
+    private int establishedYear;
 
-    public Clinic() {}
+    public Clinic(){
 
-    public Clinic(int clinicId, String clinicName, String location,
-                  int doctorId, String contactNumber, int establishedYear) {
-        this.ClinicId = clinicId;
-        this.ClinicName = clinicName;
-        this.Location = location;
-        this.DoctorId = doctorId;
-        this.ContactNumber = contactNumber;
-        this.EstablishedYear = establishedYear;
     }
 
-    // Getters
-    public int getClinicId() { return ClinicId; }
-    public String getClinicName() { return ClinicName; }
-    public String getLocation() { return Location; }
-    public int getDoctorId() { return DoctorId; }
-    public String getContactNumber() { return ContactNumber; }
-    public int getEstablishedYear() { return EstablishedYear; }
+    public Clinic(int clinicId, String clinicName, String location, int doctorId, String contactNumber, int establishedYear){
+        this.clinicId = clinicId;
+        this.clinicName = clinicName;
+        this.location = location;
+        this.doctorId = doctorId;
+        this.contactNumber = contactNumber;
+        this.establishedYear = establishedYear;
+    }
 
-    // Setters
-    public void setClinicId(int clinicId) { ClinicId = clinicId; }
-    public void setClinicName(String clinicName) { ClinicName = clinicName; }
-    public void setLocation(String location) { Location = location; }
-    public void setDoctorId(int doctorId) { DoctorId = doctorId; }
-    public void setContactNumber(String contactNumber) { ContactNumber = contactNumber; }
-    public void setEstablishedYear(int establishedYear) { EstablishedYear = establishedYear; }
+    public int getClinicId() {
+        return clinicId;
+    }
 
-    // Specific mutator mentioned
-    public void setEstablishedYearValue(int establishedYear) { this.EstablishedYear = establishedYear; }
+    public void setClinicId(int clinicId) {
+        this.clinicId = clinicId;
+    }
 
-    @Override
-    public String toString() {
-        return "Clinic{" +
-                "ClinicId=" + ClinicId +
-                ", ClinicName='" + ClinicName + '\'' +
-                ", Location='" + Location + '\'' +
-                ", DoctorId=" + DoctorId +
-                ", ContactNumber='" + ContactNumber + '\'' +
-                ", EstablishedYear=" + EstablishedYear +
-                '}';
+    public String getClinicName() {
+        return clinicName;
+    }
+
+    public void setClinicName(String clinicName) {
+        this.clinicName = clinicName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public int getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public int getEstablishedYear() {
+        return establishedYear;
+    }
+
+    public void setEstablishedYear(int establishedYear) {
+        this.establishedYear = establishedYear;
     }
 }

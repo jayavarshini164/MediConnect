@@ -1,32 +1,71 @@
-
 package com.edutech.progressive.service.impl;
+
+import java.util.List;
 
 import com.edutech.progressive.dao.ClinicDAO;
 import com.edutech.progressive.entity.Clinic;
 import com.edutech.progressive.service.ClinicService;
 
-import java.util.List;
+public class ClinicServiceImplJdbc implements ClinicService{
+    private final ClinicDAO clinicDAO;
 
-public class ClinicServiceImplJdbc implements ClinicService {
-    public List<Clinic> getAllClinics(){
-        return null;
-    }             // Returns an empty list of clinics.
+    public ClinicServiceImplJdbc(ClinicDAO clinicDAO) {
+        this.clinicDAO = clinicDAO;
+    }
 
-public Clinic getClinicById(int clinicId){
-    return null;
-}      // Returns null for a given clinic ID.
+    @Override
+    public List<Clinic> getAllClinics() throws Exception{
+        try {
+            return clinicDAO.getAllClinics();
+        } catch (Exception e) {
+            // TODO: handle exception
+            throw new Exception("Error fetching all clinics", e);
+        }finally{}
+    }
 
-public Integer addClinic(Clinic clinic){
-    return -1;
-}        // Returns -1, no clinic is actually added.
+    @Override
+    public Clinic getClinicById(int clinicId) throws Exception{
+        try {
+            Clinic clinic = clinicDAO.getClinicById(clinicId);
+            return clinic;
+        } catch (Exception e) {
+            // TODO: handle exception
+            throw new Exception("Error fetching clinic with id " + clinicId, e);
+        }finally{}
+        
+    }
 
-public void updateClinic(Clinic clinic)
-{
+    @Override
+    public Integer addClinic(Clinic clinic) throws Exception{
+        try {
+            return clinicDAO.addClinic(clinic);
+        } catch (Exception e) {
+            // TODO: handle exception
+            throw new Exception("Error adding clinic: " + clinic.getClinicName(), e);
+        }finally{}
+        
+    }
 
-}       // Does nothing (method body is empty).
+    @Override
+    public void updateClinic(Clinic clinic) throws Exception{
+        try {
+            clinicDAO.updateClinic(clinic);
+        } catch (Exception e) {
+            // TODO: handle exception
+            throw new Exception("Error updating clinic with ID " + clinic.getClinicId(), e);
+        }finally{}
+        
+    }
 
-public void deleteClinic(int clinicId)
-{
+    @Override
+    public void deleteClinic(int clinicId) throws Exception{
+        try {
+            clinicDAO.deleteClinic(clinicId);
+        } catch (Exception e) {
+            // TODO: handle exception
+            throw new Exception("Error deleting clinic with ID " + clinicId, e);
+        }finally{}
+        
+    }
     
-}    // Does nothing (method body is empty).
 }
